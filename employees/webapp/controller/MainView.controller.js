@@ -24,6 +24,16 @@ sap.ui.define([
             oJSONModelCountries.loadData("../localService/mockdata/Countries.json", false);
             oView.setModel(oJSONModelCountries, "jsonCountries");
 
+            var oJSONModelConfig = new sap.ui.model.json.JSONModel({
+                visibleID: true,
+                visibleName: true,
+                visibleCountry: true,
+                visibleCity: false,
+                visibleBtnShowCity: true,
+                visibleBtnHideCity: false               
+            });
+            oView.setModel(oJSONModelConfig, "jsonModelConfig");
+
         };
 
         function onFilter() {
@@ -55,6 +65,20 @@ sap.ui.define([
             sap.m.MessageToast.show(objectContext.PostalCode);
         };
 
+        function onShowCity() {
+            var oJSONModelConfig = this.getView().getModel("jsonModelConfig");
+            oJSONModelConfig.setProperty("/visibleCity", true);
+            oJSONModelConfig.setProperty("/visibleBtnShowCity" , false);
+            oJSONModelConfig.setProperty("/visibleBtnHideCity" , true);
+        };
+
+        function onHideCity() {
+            var oJSONModelConfig = this.getView().getModel("jsonModelConfig");
+            oJSONModelConfig.setProperty("/visibleCity", false);
+            oJSONModelConfig.setProperty("/visibleBtnShowCity" , true);
+            oJSONModelConfig.setProperty("/visibleBtnHideCity" , false);
+        };
+
         var Main = Controller.extend("logaligroup.employees.controller.MainView", {});
 
         Main.prototype.onValidate = function () {
@@ -74,5 +98,7 @@ sap.ui.define([
         Main.prototype.onFilter = onFilter;
         Main.prototype.onClearFilter = onClearFilter;
         Main.prototype.showPostalCode = showPostalCode;
+        Main.prototype.onShowCity = onShowCity;
+        Main.prototype.onHideCity = onHideCity;
         return Main;
     });
