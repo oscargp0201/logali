@@ -1,43 +1,43 @@
 <core:FragmentDefinition xmlns:core ="sap.ui.core" xmlns="sap.m">
-    <Panel>
+    <Panel id="_IDGenPanel1">
         <Button id="btnShowCity" text="{i18n>showCity}" visible="{jsonModelConfig>/visibleBtnShowCity}" press="onShowCity"/>
         <Button id="btnHideCity" text="{i18n>hideCity}" visible="{jsonModelConfig>/visibleBtnHideCity}" press="onHideCity"/>
-        <Table id="tableEmployee" items="{jsonEmployees>/Employees}">
+        <Table id="tableEmployee" items="{odataNorthwind>/Employees}">
             <columns>
-                <Column visible="{jsonModelConfig>/visibleID}">
+                <Column id="_IDGenColumn1" visible="{jsonModelConfig>/visibleID}">
                     <header>
-                        <Label text="{i18n>tableId}"/>
+                        <Label id="_IDGenLabel1" text="{i18n>tableId}"/>
                     </header>
                 </Column>
-                <Column visible="{jsonModelConfig>/visibleName}">
+                <Column id="_IDGenColumn2" visible="{jsonModelConfig>/visibleName}">
                     <header>
-                        <Label text="{i18n>tableName}"/>
+                        <Label id="_IDGenLabel2" text="{i18n>tableName}"/>
                     </header>
                 </Column>
-                <Column visible="{jsonModelConfig>/visibleCountry}">
+                <Column id="_IDGenColumn3" visible="{jsonModelConfig>/visibleCountry}">
                     <header>
-                        <Label text="{i18n>tableCountry}"/>
+                        <Label id="_IDGenLabel3" text="{i18n>tableCountry}"/>
                     </header>
                 </Column>
-                <Column visible="{jsonModelConfig>/visibleCity}">
+                <Column id="_IDGenColumn4" visible="{jsonModelConfig>/visibleCity}">
                     <header>
-                        <Label text="{i18n>tableCity}"/>
+                        <Label id="_IDGenLabel4" text="{i18n>tableCity}"/>
                     </header>
                 </Column>
-                <Column width="100px">
+                <Column id="_IDGenColumn5" width="100px">
                     <header>
-                        <Label text="{i18n>tableShowDetails}"/>
+                        <Label id="_IDGenLabel5" text="{i18n>tableShowDetails}"/>
                     </header>
                 </Column>
             </columns>
             <items>
-                <ColumnListItem type="Navigation" press="showEmployee">
+                <ColumnListItem id="_IDGenColumnListItem1" type="Navigation" press="showEmployee">
                     <cells>
-                        <Label text="{jsonEmployees>EmployeeID}"/>
-                        <Label text="{jsonEmployees>LastName}"/>
-                        <Label text="{jsonEmployees>Country}"/>
-                        <Label text="{jsonEmployees>City}"/>
-                        <core:Icon src="sap-icon://show" press="showOrders"></core:Icon>
+                        <Label id="_IDGenLabel6" text="{odataNorthwind>EmployeeID}"/>
+                        <Label id="_IDGenLabel7" text="{odataNorthwind>LastName}"/>
+                        <Label id="_IDGenLabel8" text="{odataNorthwind>Country}"/>
+                        <Label id="_IDGenLabel9" text="{odataNorthwind>City}"/>
+                        <core:Icon id="_IDGenIcon1" src="sap-icon://show" press="showOrders"></core:Icon>
                     </cells>
                 </ColumnListItem>
             </items>
